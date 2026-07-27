@@ -5,7 +5,7 @@ import { usePrimaryNavFocus } from '@/composables/usePrimaryNavFocus'
 import {
   useRippleEvent,
   rplEventPayload
-} from '../../../../composables/useRippleEvent'
+} from '../../@/composables/useRippleEvent'
 
 interface Props {
   url?: string

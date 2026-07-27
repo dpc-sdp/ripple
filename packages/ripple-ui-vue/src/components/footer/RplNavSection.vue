@@ -4,11 +4,8 @@ import { INavSectionItem } from './constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import { computed, ref } from 'vue'
-import { useExpandable } from '../../composables/useExpandable'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useExpandable } from '@/composables/useExpandable'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import RplTextLink from '../text-link/RplTextLink.vue'
 
 interface Props {

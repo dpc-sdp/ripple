@@ -4,10 +4,7 @@ import RplImage from '../image/RplImage.vue'
 import RplButton from '../button/RplButton.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType } from '../image/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title: string

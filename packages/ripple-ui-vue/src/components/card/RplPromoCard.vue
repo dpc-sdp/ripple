@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { RplCardElements, RplCardTitleClasses } from './constants'
-import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
+import { useAccessibleContainer } from '@/composables/useAccessibleContainer'
 import RplImage from '../image/RplImage.vue'
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { IRplImageType } from '../image/constants'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-ui-shared/contracts'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   el?: (typeof RplCardElements)[number]

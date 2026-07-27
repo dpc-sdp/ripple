@@ -22,11 +22,8 @@ import {
   IRplPrimaryNavFocusOptions
 } from './constants'
 import RplPrimaryNavQuickExit from './components/quick-exit/RplPrimaryNavQuickExit.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
-import { useViewportHeight } from '../../composables/useViewportHeight'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
+import { useViewportHeight } from '@/composables/useViewportHeight'
 
 interface Props {
   primaryLogo: IRplPrimaryNavLogo

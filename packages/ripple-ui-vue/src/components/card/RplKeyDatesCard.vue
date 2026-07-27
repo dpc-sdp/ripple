@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { RplCardElements, IRplCardItem } from './constants'
-import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
+import { useAccessibleContainer } from '@/composables/useAccessibleContainer'
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   ctaTitle: string

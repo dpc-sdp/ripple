@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 const RplChipVariants = ['default', 'reverse']
 

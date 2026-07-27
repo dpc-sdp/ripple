@@ -2,11 +2,8 @@
 import type { IRplListItemArray } from '../list/constants'
 import { computed, useSlots } from 'vue'
 import RplList from '../list/RplList.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
-import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
+import useEmptySlotCheck from '@/composables/useEmptySlotCheck'
 
 interface IRplContactUsDetails {
   name?: string

@@ -3,10 +3,7 @@ import { computed, reactive } from 'vue'
 import RplContent from '../content/RplContent.vue'
 import RplDataTableCell from './RplDataTableCell.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import RplIcon from '../icon/RplIcon.vue'
 import { getCellText, hasComponent } from './helpers'
 import type { tableColumnConfig, tableRow } from './types'

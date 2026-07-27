@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 const emit = defineEmits<{
   (e: 'toggleTab', payload: rplEventPayload & { action: 'select' }): void

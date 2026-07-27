@@ -8,11 +8,8 @@ import { EffectFade } from 'swiper'
 import { useBreakpoints } from '@vueuse/core'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
-import { useComputedSpeed } from '../../composables/useComputedSpeed'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useComputedSpeed } from '@/composables/useComputedSpeed'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   perView?: RplSlidesPerView

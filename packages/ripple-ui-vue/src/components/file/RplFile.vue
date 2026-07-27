@@ -2,10 +2,7 @@
 import { computed } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
 import RplDocument from '../document/RplDocument.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import { RplIconSizes } from '../icon/constants'
 
 interface Props {

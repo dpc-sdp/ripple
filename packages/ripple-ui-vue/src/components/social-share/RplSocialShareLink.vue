@@ -3,11 +3,8 @@ import { computed } from 'vue'
 import RplIcon from '../icon/RplIcon.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { RplSocialShareNetworks } from './constants'
-import { usePopupWindow } from '../../composables/usePopupWindow'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { usePopupWindow } from '@/composables/usePopupWindow'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   network: string

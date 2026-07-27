@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import RplVerticalNavList from './RplVerticalNavList.vue'
-import { useExpandableState } from '../../composables/useExpandableState'
+import { useExpandableState } from '@/composables/useExpandableState'
 import { IRplVerticalNavItem } from './constants'
 import { computed } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title?: string
@@ -108,4 +105,6 @@ const handleClick = (event) => {
   </nav>
 </template>
 
-<style src="@dpc-sdp/ripple-ui-styles/components/vertical-nav/RplVerticalNav.css" />
+<style
+  src="@dpc-sdp/ripple-ui-styles/components/vertical-nav/RplVerticalNav.css"
+/>

@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
-import { useSlotContent } from '../../composables/useSlotContent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
+import { useSlotContent } from '@/composables/useSlotContent'
 
 interface Props {
   url?: string

@@ -3,10 +3,7 @@ import { IRplVerticalNavItem } from './constants'
 import RplVerticalNavLink from './RplVerticalNavLink.vue'
 import RplVerticalNavToggle from './RplVerticalNavToggle.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   items: IRplVerticalNavItem[]

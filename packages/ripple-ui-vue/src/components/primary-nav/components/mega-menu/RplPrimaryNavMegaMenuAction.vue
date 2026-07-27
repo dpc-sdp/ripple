@@ -10,7 +10,7 @@ import { usePrimaryNavFocus } from '@/composables/usePrimaryNavFocus'
 import {
   useRippleEvent,
   type rplEventPayload
-} from '../../../../composables/useRippleEvent'
+} from '../../@/composables/useRippleEvent'
 
 interface Props {
   item: IRplPrimaryNavItem

@@ -6,10 +6,7 @@ export default { inheritAttrs: false }
 import { computed } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   direction: 'prev' | 'next'

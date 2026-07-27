@@ -11,7 +11,7 @@ import type {
 import {
   useRippleEvent,
   type rplEventPayload
-} from '../../../../composables/useRippleEvent'
+} from '../../@/composables/useRippleEvent'
 import useEmptySlotCheck from '@/composables/useEmptySlotCheck'
 import VicGovLogo from '@dpc-sdp/ripple-ui-shared/assets/logos/logo-vic-gov.svg'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-ui-shared/contracts'

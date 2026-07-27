@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { IRplListItemArray } from '../list/constants'
 import RplList from '../list/RplList.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title?: string
@@ -49,4 +46,6 @@ const handleClick = (event) => {
   </div>
 </template>
 
-<style src="@dpc-sdp/ripple-ui-styles/components/related-links/RplRelatedLinks.css" />
+<style
+  src="@dpc-sdp/ripple-ui-styles/components/related-links/RplRelatedLinks.css"
+/>

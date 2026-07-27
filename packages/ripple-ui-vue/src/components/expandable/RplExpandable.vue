@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
-import { useComputedSpeed } from '../../composables/useComputedSpeed'
+import { useComputedSpeed } from '@/composables/useComputedSpeed'
 
 interface Props {
   expanded?: boolean

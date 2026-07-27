@@ -4,10 +4,7 @@ import { IRplHeaderLinksList } from './constants'
 import RplIcon from '../icon/RplIcon.vue'
 import RplHeaderLinks from './RplHeaderLinks.vue'
 import { RplIconNames } from '../icon/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title: string

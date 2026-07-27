@@ -14,10 +14,7 @@ import {
 } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import RplIcon from '../icon/RplIcon.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 const RplSearchBarVariants = ['default', 'reverse', 'menu']
 

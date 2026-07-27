@@ -5,10 +5,7 @@ import RplTextLink from '../text-link/RplTextLink.vue'
 import RplIcon from '../icon/RplIcon.vue'
 import { IRplListItemArray } from '../list/constants'
 import { RplLink } from '../../lib/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title?: string

@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useAccessibleContainer } from '@/composables/useAccessibleContainer'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title: string

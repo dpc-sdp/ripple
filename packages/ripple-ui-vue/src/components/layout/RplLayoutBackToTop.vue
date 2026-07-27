@@ -2,10 +2,7 @@
 import RplButton from '../button/RplButton.vue'
 import { useWindowScroll, useElementBounding } from '@vueuse/core'
 import { ref, computed } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   label?: string
@@ -90,4 +87,6 @@ const handleClick = () => {
   </div>
 </template>
 
-<style src="@dpc-sdp/ripple-ui-styles/components/layout/RplLayoutBackToTop.css" />
+<style
+  src="@dpc-sdp/ripple-ui-styles/components/layout/RplLayoutBackToTop.css"
+/>

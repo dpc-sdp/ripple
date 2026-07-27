@@ -6,11 +6,8 @@ import RplSlider from '../slider/RplSlider.vue'
 import { IRplCardCarouselItem } from './constants'
 import { RplSlidesPerView } from '../slider/constants'
 import { formatDate, formatDateRange } from '@dpc-sdp/ripple-ui-shared/utils'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
-import { useSlotChildren } from '../../composables/useSlotChildren'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
+import { useSlotChildren } from '@/composables/useSlotChildren'
 
 interface Props {
   perView?: RplSlidesPerView

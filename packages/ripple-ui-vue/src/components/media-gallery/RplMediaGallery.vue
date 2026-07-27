@@ -4,10 +4,7 @@ import RplImage from '../image/RplImage.vue'
 import RplSlider from '../slider/RplSlider.vue'
 import RplModal from '../modal/RplModal.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
@@ -231,4 +228,6 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style src="@dpc-sdp/ripple-ui-styles/components/media-gallery/RplMediaGallery.css" />
+<style
+  src="@dpc-sdp/ripple-ui-styles/components/media-gallery/RplMediaGallery.css"
+/>

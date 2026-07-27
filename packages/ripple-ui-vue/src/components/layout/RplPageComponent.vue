@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useEventContext from '../../composables/useEventContext'
+import useEventContext from '@/composables/useEventContext'
 
 export interface Props {
   id?: string

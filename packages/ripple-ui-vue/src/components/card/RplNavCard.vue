@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useAccessibleContainer } from '../../composables/useAccessibleContainer'
+import { useAccessibleContainer } from '@/composables/useAccessibleContainer'
 import RplCard from './RplCard.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { RplCardElements } from './constants'
 import { IRplImageType } from '../image/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   el?: (typeof RplCardElements)[number]

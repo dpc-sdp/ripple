@@ -5,10 +5,7 @@ import RplButton from '../button/RplButton.vue'
 import { IRplHeaderLinkExtended } from './constants'
 import { RplLink } from '../../lib/constants'
 import { RplButtonVariants } from '../button/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   primary?: RplLink

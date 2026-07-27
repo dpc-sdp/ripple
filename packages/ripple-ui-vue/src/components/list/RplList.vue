@@ -4,10 +4,7 @@ import RplListContent from './RplListContent.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
 import { RplIconPlacement } from '../icon/constants'
 import { computed } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 export interface Props {
   items?: IRplListItemArray[]

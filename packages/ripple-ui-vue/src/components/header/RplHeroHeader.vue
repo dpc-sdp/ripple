@@ -12,11 +12,8 @@ import RplHeaderGraphic from './RplHeaderGraphic.vue'
 import RplHeaderActions from './RplHeaderActions.vue'
 import { RplLink } from '../../lib/constants'
 import { IRplImageType, RplImageAspect } from '../image/constants'
-import useEmptySlotCheck from '../../composables/useEmptySlotCheck'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import useEmptySlotCheck from '@/composables/useEmptySlotCheck'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import { RplButtonVariants } from '../button/constants'
 
 interface Props {

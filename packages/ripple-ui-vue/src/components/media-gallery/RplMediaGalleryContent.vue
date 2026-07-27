@@ -4,10 +4,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import RplImage from '../image/RplImage.vue'
 import { computed } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   id: string

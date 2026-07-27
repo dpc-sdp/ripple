@@ -12,10 +12,7 @@ import RplModal from '../modal/RplModal.vue'
 import RplContent from '../content/RplContent.vue'
 import RplExpandable from '../expandable/RplExpandable.vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import { RplImageAspectOptions } from '../image/constants'
 
 interface Props {

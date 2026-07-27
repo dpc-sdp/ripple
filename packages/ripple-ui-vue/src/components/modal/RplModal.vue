@@ -3,10 +3,7 @@ import { watch, onMounted, onUnmounted } from 'vue'
 import RplButton from '../button/RplButton.vue'
 import { useWindowSize } from '@vueuse/core'
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component.mjs'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   isOpen: boolean

@@ -15,10 +15,7 @@ import {
 } from './constants'
 import RplNavSection from './RplNavSection.vue'
 import RplImage from '../image/RplImage.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-ui-shared/contracts'
 
 interface Props {

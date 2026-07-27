@@ -3,10 +3,7 @@ import RplTextLink from '../text-link/RplTextLink.vue'
 import RplImage from '../image/RplImage.vue'
 import { formatDateRange } from '@dpc-sdp/ripple-ui-shared/utils'
 import { IRplImageType } from '../image/constants'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 interface Props {
   title?: string | null

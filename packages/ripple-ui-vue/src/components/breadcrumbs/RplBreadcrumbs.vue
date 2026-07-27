@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue'
 import RplTextLink from '../text-link/RplTextLink.vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 import type { IRplFeatureFlags } from '@dpc-sdp/ripple-ui-shared/contracts'
 
 interface IRplBreadcrumbsItem {

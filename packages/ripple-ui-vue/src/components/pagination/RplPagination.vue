@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import RplPaginationLink from './RplPaginationLink.vue'
-import { useStepNavigation } from '../../composables/useStepNavigation'
+import { useStepNavigation } from '@/composables/useStepNavigation'
 import { computed, watch } from 'vue'
-import {
-  useRippleEvent,
-  rplEventPayload
-} from '../../composables/useRippleEvent'
+import { useRippleEvent, rplEventPayload } from '@/composables/useRippleEvent'
 
 const RplPaginationVariants = ['complex', 'simple'] as const
 
@@ -121,4 +118,6 @@ const iconSize = computed(() => (isComplex.value ? 's' : 'xs'))
   </nav>
 </template>
 
-<style src="@dpc-sdp/ripple-ui-styles/components/pagination/RplPagination.css" />
+<style
+  src="@dpc-sdp/ripple-ui-styles/components/pagination/RplPagination.css"
+/>

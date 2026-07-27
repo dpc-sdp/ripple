@@ -2,7 +2,8 @@ import RplVerticalNav from './RplVerticalNav.vue'
 import {
   verticalNavExample1,
   verticalNavExample2,
-  verticalNavExample3
+  verticalNavExample3,
+  verticalNavExample5
 } from './fixtures/sample'
 
 const props = {
@@ -149,5 +150,37 @@ describe('RplVerticalNav', () => {
         .find('.rpl-vertical-nav__list--level-2')
         .should('be.hidden')
     })
+  })
+
+  it('allows for mixing toggle with and without links', () => {
+    cy.mount(RplVerticalNav as any, {
+      props: { ...props, items: verticalNavExample5, toggleLevels: 2 }
+    })
+
+    cy.contains('.rpl-vertical-nav__link', 'First level with link').should(
+      'be.visible'
+    )
+    cy.get('[aria-label="Toggle First level with link menu"]').click()
+
+    cy.contains('.rpl-vertical-nav__link', 'Second level no link').should(
+      'not.exist'
+    )
+    cy.get('[aria-label="Toggle Second level no link menu"]').click()
+    cy.contains('.rpl-vertical-nav__link', 'Third level link in item 1').should(
+      'be.visible'
+    )
+
+    cy.contains('.rpl-vertical-nav__link', 'First level no link').should(
+      'not.exist'
+    )
+    cy.get('[aria-label="Toggle First level no link menu"]').click()
+
+    cy.contains('.rpl-vertical-nav__link', 'Second level with link').should(
+      'be.visible'
+    )
+    cy.get('[aria-label="Toggle Second level with link menu"]').click()
+    cy.contains('.rpl-vertical-nav__link', 'Third level in item 2').should(
+      'be.visible'
+    )
   })
 })

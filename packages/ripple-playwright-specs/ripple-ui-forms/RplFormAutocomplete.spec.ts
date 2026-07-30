@@ -112,6 +112,7 @@ test.describe(() => {
       } as any
     })
 
+    // In this component combobox is an input
     await component.getByRole('combobox').focus()
     await page.keyboard.press('a')
     await component.locator(_.option).filter({ hasText: 'Apple' }).click()

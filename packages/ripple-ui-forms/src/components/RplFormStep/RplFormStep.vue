@@ -93,11 +93,13 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { focusFormElement } = useFormFocus()
-const formEl: IRplFormProvidedState | undefined = inject('form')
+const formEl: IRplFormProvidedState = inject('form', {})
 
 const stepErrorsRef = ref(null)
-const inputErrors: Ref<Record<string, string[]>> | undefined =
-  inject('inputErrors')
+const inputErrors: Ref<Record<string, string[]>> | undefined = inject(
+  'inputErrors',
+  ref({})
+)
 
 const handleBack = () => getNode(props.form)?.previous()
 

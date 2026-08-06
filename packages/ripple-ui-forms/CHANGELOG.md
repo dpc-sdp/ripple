@@ -774,6 +774,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.51.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.50.1...ripple-ui-forms-v2.51.0) (2026-08-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-forms:** add default values for injects ([#1421](https://github.com/dpc-sdp/ripple/issues/1421)) ([4db4f20](https://github.com/dpc-sdp/ripple/commit/4db4f20321bc3b384ac1ba53352c8b0bd55f6312))
+* **@dpc-sdp/ripple-ui-forms:** export createRplFormGroup ([#1429](https://github.com/dpc-sdp/ripple/issues/1429)) ([0e2adf3](https://github.com/dpc-sdp/ripple/commit/0e2adf39c0ec5319e441911902ded6456705eee4))
+
 ## [2.50.1](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.50.0...ripple-ui-forms-v2.50.1) (2026-05-14)
 
 

@@ -163,6 +163,16 @@
   .rpl-vertical-nav__list-item--expanded > .rpl-vertical-nav__header > & .rpl-icon {
     transform: rotate(-180deg);
   }
+
+  &.rpl-vertical-nav__item {
+    padding-left: calc(var(--local-v-nav-gutter) + var(--local-left-indentation));
+    position: relative !important;
+    inset: auto;
+
+    span {
+      padding-right: 0;
+    }
+  }
 }
 
 .rpl-vertical-nav__toggle-text {

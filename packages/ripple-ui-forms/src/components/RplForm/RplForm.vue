@@ -46,6 +46,8 @@ interface Props {
   customInputs?: FormKitPlugin
   layout?: 'default' | 'compact'
   utils?: Record<string, (arg) => any>
+  errorSummaryTitle?: string
+  errorSummaryIntro?: string
 }
 
 interface CachedError {
@@ -82,7 +84,9 @@ const props = withDefaults(defineProps<Props>(), {
   }),
   customInputs: () => {},
   layout: 'default',
-  utils: () => ({})
+  utils: () => ({}),
+  errorSummaryTitle: 'Form not submitted',
+  errorSummaryIntro: undefined
 })
 
 const emit = defineEmits<{
@@ -513,10 +517,11 @@ const formClasses = computed(() => {
       "
       ref="errorSummaryRef"
       status="error"
-      title="Form not submitted"
+      :title="errorSummaryTitle"
       :fields="errorSummaryMessages"
       data-component-type="form-error-summary"
-    />
+      ><div v-if="errorSummaryIntro">{{ errorSummaryIntro }}</div></RplFormAlert
+    >
     <RplFormAlert
       v-else-if="
         (submissionState.status === 'error' ||

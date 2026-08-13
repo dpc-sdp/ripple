@@ -34,7 +34,9 @@ const props = withDefaults(defineProps<Props>(), {
     { id: 'peach', value: 'peach', label: 'Peach' },
     { id: 'lemon', value: 'lemon', label: 'Lemon' },
     { id: 'watermelon', value: 'watermelon', label: 'Watermelon' }
-  ]
+  ],
+  min: undefined,
+  max: undefined
 })
 
 const selectedValue = ref<string | string[] | undefined>()

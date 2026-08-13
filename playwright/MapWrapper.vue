@@ -4,7 +4,6 @@ import RplMap from '../packages/ripple-ui-maps/src/components/map/RplMap.vue'
 import RplMapPopUpAccordion from '../packages/ripple-ui-maps/src/components/popup/RplMapPopUpAccordion.vue'
 import RplMapProviderVicMap from '../packages/ripple-ui-maps/src/components/map/providers/RplMapProviderVicMap.vue'
 import RplMapProviderEsri from '../packages/ripple-ui-maps/src/components/map/providers/RplMapProviderEsri.vue'
-import { RplIconSprite } from '../packages/ripple-ui-core/src/components'
 
 interface Props {
   mapProps?: {
@@ -64,7 +63,6 @@ const getClusteredFeatures = (itms) => {
 </script>
 
 <template>
-  <RplIconSprite style="display: none" />
   <RplMap v-bind="mapProps as any">
     <template #map-provider>
       <RplMapProviderVicMap v-if="provider === 'vicmap'" id="vicmap" />

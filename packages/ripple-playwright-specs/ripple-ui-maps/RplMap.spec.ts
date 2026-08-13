@@ -15,8 +15,8 @@ const coords = {
 
 const pins = {
   horsham: {
-    x: 207,
-    y: 316
+    x: 200,
+    y: 300
   }
 }
 
@@ -46,7 +46,7 @@ test.describe(() => {
     await expect(canvas).toBeAttached()
     await page.waitForTimeout(500)
 
-    await canvas.click({ position: pins['horsham'] })
+    await canvas.click({ position: pins.horsham })
     await page.waitForTimeout(1500)
 
     const centerCoords = (await map.getAttribute('data-center'))

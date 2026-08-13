@@ -2,7 +2,7 @@
 import { computed, ref, useSlots, watch, onMounted } from 'vue'
 import RplPagination from '../pagination/RplPagination.vue'
 import { bpMin } from '../../lib/breakpoints'
-import { RplSlidesPerView } from './constants'
+import { RplSlideGap, RplSlidesPerView } from './constants'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { EffectFade } from 'swiper/modules'
 import { useBreakpoints } from '@vueuse/core'
@@ -25,6 +25,7 @@ interface Props {
   itemElement?: string
   wrapperElement?: string
   changeNotice?: boolean | string
+  slideGap?: RplSlideGap
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -37,7 +38,8 @@ const props = withDefaults(defineProps<Props>(), {
   contentType: 'item',
   itemElement: 'li',
   wrapperElement: 'ul',
-  changeNotice: true
+  changeNotice: true,
+  slideGap: undefined
 })
 
 const emit = defineEmits<{
@@ -58,7 +60,7 @@ const isXSmallScreen = bp.greaterOrEqual('xs')
 const isSmallScreen = bp.greaterOrEqual('s')
 const isMediumScreen = bp.greaterOrEqual('m')
 const isLargeScreen = bp.greaterOrEqual('l')
-const isXLargeScreen = bp.greaterOrEqual('l')
+const isXLargeScreen = bp.greaterOrEqual('xl')
 
 const slides = computed(
   () => slots?.default?.()?.[0].children || slots?.default?.() || []
@@ -109,12 +111,18 @@ const breakpoints = computed(() => {
 })
 
 const spaceBetween = computed(() => {
-  if (isXLargeScreen.value) {
-    return 28
+  if (typeof props.slideGap === 'number') {
+    return props.slideGap
+  } else if (isXLargeScreen.value) {
+    return props.slideGap?.xl ?? 28
+  } else if (isLargeScreen.value) {
+    return props.slideGap?.l ?? 28
   } else if (isMediumScreen.value) {
-    return 24
+    return props.slideGap?.m ?? 24
+  } else if (isSmallScreen.value) {
+    return props.slideGap?.s ?? 16
   } else {
-    return 16
+    return props.slideGap?.xs ?? 16
   }
 })
 

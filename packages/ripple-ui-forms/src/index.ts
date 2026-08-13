@@ -7,6 +7,7 @@ export { default as useFormkitFriendlyEventEmitter } from './composables/useForm
 export { sanitisePIIField, sanitisePIIFields } from './lib/sanitisePII'
 export {
   createRplFormInput,
+  createRplFormGroup,
   defaultRplFormInputProps,
   inputLibrary,
   rplFeatures

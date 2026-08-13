@@ -61,6 +61,7 @@ const handleClick = (event) => {
       <template v-if="isExpandable(item)">
         <div class="rpl-vertical-nav__header">
           <RplVerticalNavLink
+            v-if="item.url"
             :text="item.text"
             :href="item.url"
             :active="item?.active && !item.items?.some((i) => i.active)"
@@ -70,6 +71,7 @@ const handleClick = (event) => {
           <RplVerticalNavToggle
             :id="toggleId(item.id)"
             :text="item.text"
+            :show-text="!item.url"
             :aria-expanded="isExpanded(item.id)"
             @click="toggleItem(item)"
           />

@@ -1303,6 +1303,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.54.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.53.0...ripple-ui-core-v2.54.0) (2026-08-06)
+
+
+### Features
+
+* **@dpc-sdp/ripple-ui-core:** allow customizing the gap between slides ([#1426](https://github.com/dpc-sdp/ripple/issues/1426)) ([2664296](https://github.com/dpc-sdp/ripple/commit/2664296027ae5914f404487af92827925d85ec21))
+* **@dpc-sdp/ripple-ui-core:** allow mixing link/toggles with just toggles ([#1427](https://github.com/dpc-sdp/ripple/issues/1427)) ([78badb5](https://github.com/dpc-sdp/ripple/commit/78badb52b10a32281ece5095eb6d5520b84ee423))
+
 ## [2.53.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.52.2...ripple-ui-core-v2.53.0) (2026-07-02)
 
 

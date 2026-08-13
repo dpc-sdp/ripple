@@ -231,3 +231,67 @@ export const verticalNavExample4 = [
     ]
   }
 ]
+
+export const verticalNavExample5 = [
+  {
+    id: '1',
+    text: 'First level with link',
+    url: '#',
+    items: [
+      {
+        id: '3',
+        text: 'Second level no link',
+        items: [
+          {
+            id: '4',
+            text: 'Third level link in item 1',
+            url: '#',
+            items: [
+              {
+                id: '41',
+                text: 'Fourth level item 1',
+                url: '#'
+              },
+              {
+                id: '42',
+                text: 'Fourth level item 2',
+                url: '#'
+              }
+            ]
+          },
+          {
+            id: '5',
+            text: 'Third level item 2',
+            url: '#'
+          },
+          {
+            id: '6',
+            text: 'Third level item 3',
+            url: '#'
+          }
+        ]
+      },
+      { id: '7', text: 'Second level', url: '#' }
+    ]
+  },
+  {
+    id: '8',
+    text: 'First level no link',
+    items: [
+      {
+        id: '10',
+        text: 'Second level with link',
+        url: '#',
+        items: [
+          {
+            id: '11',
+            text: 'Third level in item 2',
+            url: '#'
+          }
+        ]
+      },
+      { id: '13', text: 'Second level item 2', url: '#' }
+    ]
+  },
+  { id: '15', text: 'First level no children', url: '#' }
+]

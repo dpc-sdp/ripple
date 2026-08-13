@@ -3,7 +3,8 @@ import RplVerticalNav from './RplVerticalNav.vue'
 import {
   verticalNavExample1,
   verticalNavExample3,
-  verticalNavExample4
+  verticalNavExample4,
+  verticalNavExample5
 } from './fixtures/sample'
 
 export default {
@@ -60,5 +61,13 @@ export const VerticalNavigationWithNoChildren: Story = {
   args: {
     title: 'Section name',
     items: verticalNavExample4
+  }
+}
+
+export const VerticalNavigationMixedToggles: Story = {
+  args: {
+    title: 'Section name',
+    items: verticalNavExample5,
+    toggleLevels: 2
   }
 }

@@ -19,7 +19,7 @@
     "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@storybook/addon-a11y": "^10.2.10",
-    "@storybook/addon-vitest": "^10.2.10",
+    "@storybook/addon-vitest": "^10.4.6",
     "@storybook/vue3": "^10.2.10",
     "@storybook/vue3-vite": "^10.2.10",
     "@vitejs/plugin-vue": "^5.2.3",

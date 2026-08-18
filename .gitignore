@@ -53,8 +53,8 @@ Thumbs.db
 biome.json
 
 # Playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+/packages/ripple-playwright/test-results/
+/packages/ripple-playwright/playwright-report/
+/packages/ripple-playwright/blob-report/
+/packages/ripple-playwright/playwright/.cache/
+/packages/ripple-playwright/playwright/.auth/

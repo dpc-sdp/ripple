@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
-// import dts from 'vite-dts'
-import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 // https://vitejs.dev/guide/build.html#library-mode
@@ -12,7 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  plugins: [vue({ customElement: true }), dts()],
+  plugins: [vue({ customElement: true })],
   build: {
     emptyOutDir: false,
     outDir: 'dist/web-components',

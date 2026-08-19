@@ -2,7 +2,7 @@
   "compilerOptions": {
     "noImplicitAny": false,
     "outDir": "dist",
-    "baseUrl": "./src",
+    "rootDir": "src/",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -15,7 +15,8 @@
     "esModuleInterop": true,
     "types": ["vite/client", "cypress"],
     "paths": {
-      "@/*": ["src/*"]
+      "*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true,

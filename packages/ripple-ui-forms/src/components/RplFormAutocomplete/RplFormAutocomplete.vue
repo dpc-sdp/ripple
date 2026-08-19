@@ -143,6 +143,7 @@ const handleSelectOption = async (
 }
 
 const getDefaultActiveId = (): string => {
+  if (!suggestions.value?.length) return null
   return props.getOptionId(suggestions.value[0])
 }
 
@@ -184,12 +185,15 @@ const handleClear = async () => {
 }
 
 const handleArrowDown = () => {
-  const currentActiveIndex = suggestions.value.findIndex(
+  const currentActiveIndex = suggestions.value?.findIndex(
     (opt) => props.getOptionId(opt) === activeOptionId.value
-  )
+  ) ?? -1
 
   if (currentActiveIndex < 0) {
-    activeOptionId.value = getDefaultActiveId()
+    const defaultId = getDefaultActiveId()
+    if (defaultId) {
+      activeOptionId.value = defaultId
+    }
   } else if (currentActiveIndex < suggestions.value.length - 1) {
     activeOptionId.value = props.getOptionId(
       suggestions.value[currentActiveIndex + 1]
@@ -198,12 +202,15 @@ const handleArrowDown = () => {
 }
 
 const handleArrowUp = () => {
-  const currentActiveIndex = suggestions.value.findIndex(
+  const currentActiveIndex = suggestions.value?.findIndex(
     (opt) => props.getOptionId(opt) === activeOptionId.value
-  )
+  ) ?? -1
 
   if (currentActiveIndex < 0) {
-    activeOptionId.value = getDefaultActiveId()
+    const defaultId = getDefaultActiveId()
+    if (defaultId) {
+      activeOptionId.value = defaultId
+    }
   } else if (currentActiveIndex > 0) {
     activeOptionId.value = props.getOptionId(
       suggestions.value[currentActiveIndex - 1]
@@ -382,7 +389,7 @@ const handleActionClick = () => {
       <template
         v-if="
           showNoResults &&
-          suggestions.length === 0 &&
+          suggestions?.length === 0 &&
           !gettingSuggestions &&
           !!internalInputValue &&
           isOpen
@@ -397,7 +404,7 @@ const handleActionClick = () => {
         </slot>
       </template>
       <div
-        v-if="suggestions.length && isOpen"
+        v-if="suggestions?.length && isOpen"
         :id="menuId"
         ref="menuRef"
         class="rpl-form-autocomplete__menu"

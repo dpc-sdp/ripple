@@ -1,0 +1,20 @@
+{
+  "name": "@dpc-sdp/ripple-playwright",
+  "description": "Playwright-ct config and specs for use with Ripple.",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/dpc-sdp/ripple",
+  "type": "module",
+  "scripts": {
+    "test-ct": "playwright test -c playwright-ct.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/experimental-ct-vue": "^1.62.1"
+  },
+  "engines": {
+    "node": "^24.12.0",
+    "pnpm": "^10.33.0"
+  }
+}

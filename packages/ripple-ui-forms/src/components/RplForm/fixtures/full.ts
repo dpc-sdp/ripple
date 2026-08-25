@@ -66,9 +66,6 @@ export const schema = [
     label: 'Message',
     id: 'message',
     help: '<p>Please enter a message</p>',
-    counter: 'character',
-    counterMin: 10,
-    counterMax: 50,
     validation: [['required'], ['length', 10, 50]],
     validationMessages: {
       required: 'The message field is required',

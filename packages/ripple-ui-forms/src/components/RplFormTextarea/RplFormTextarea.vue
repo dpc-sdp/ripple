@@ -2,6 +2,7 @@
 import { computed, inject } from 'vue'
 import { useRippleEvent } from '@dpc-sdp/ripple-ui-core'
 import type { rplEventPayload } from '@dpc-sdp/ripple-ui-core'
+import RplFormCounter from '../RplFormCounter/RplFormCounter.vue'
 import { sanitisePIIField } from '../../lib/sanitisePII'
 import { IRplFormProvidedState } from '../../types'
 
@@ -18,6 +19,9 @@ interface Props {
   invalid?: boolean
   required?: boolean
   variant?: 'default' | 'reverse'
+  counter?: 'word' | 'character'
+  counterMin?: number
+  counterMax?: number
   pii?: boolean
   handlers: Record<string, any>
 }
@@ -33,6 +37,9 @@ const props = withDefaults(defineProps<Props>(), {
   required: false,
   invalid: false,
   variant: 'default',
+  counter: undefined,
+  counterMin: undefined,
+  counterMax: undefined,
   pii: true
 })
 
@@ -87,6 +94,14 @@ const handleChange = () => {
       @blur="handlers?.blur"
       @input="handlers?.DOMInput"
       @change="handleChange"
+    />
+    <RplFormCounter
+      v-if="counter"
+      :value="value"
+      :type="counter"
+      :invalid="invalid"
+      :counter-min="counterMin"
+      :counter-max="counterMax"
     />
   </div>
 </template>

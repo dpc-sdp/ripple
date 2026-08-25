@@ -1,3 +1,4 @@
+import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 import RplFormTextarea from './RplFormTextarea.vue'
 import StorybookInputFixture from './../StorybookInputFixture/StorybookInputFixture.vue'
@@ -7,11 +8,23 @@ import '../RplForm/RplForm.css'
 const Template = (args: any) => ({
   components: { RplFormTextarea, StorybookInputFixture },
   setup() {
-    return { args }
+    const currentValue = ref(args.value || '')
+
+    const handlers = {
+      DOMInput: (event: Event) => {
+        currentValue.value = (event.target as HTMLTextAreaElement).value
+      }
+    }
+
+    return {
+      args,
+      currentValue,
+      handlers
+    }
   },
   template: `
       <StorybookInputFixture :invalid="args.invalid" :labelId="args.labelId" :fieldId="args.id">
-        <RplFormTextarea v-bind="args"/>
+        <RplFormTextarea v-bind="args" :value="currentValue" :handlers="handlers" />
       </StorybookInputFixture>`
 })
 
@@ -58,5 +71,13 @@ export const Inactive: Story = {
   args: {
     disabled: true,
     value: 'Example content'
+  }
+}
+
+export const WithCounter: Story = {
+  args: {
+    counter: 'character',
+    counterMin: 0,
+    counterMax: 25
   }
 }

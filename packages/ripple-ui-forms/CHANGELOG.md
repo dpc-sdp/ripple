@@ -774,6 +774,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-forms:** :building_construction: move storybook to project root, add forms ([578f8c9](https://github.com/dpc-sdp/ripple-framework/commit/578f8c92904e5f05f24ec1d8cb0646af13a32a43))
 * **@dpc-sdp/ripple-ui-forms:** :sparkles: change form validation to be on submit ([eedc937](https://github.com/dpc-sdp/ripple-framework/commit/eedc9373cb04817c94fd095d2c564e56140064c1))
 
+## [2.52.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.51.0...ripple-ui-forms-v2.52.0) (2026-09-01)
+
+
+### Features
+
+* :sparkles: migrate component tests to playwright-ct ([#1422](https://github.com/dpc-sdp/ripple/issues/1422)) ([d71c46e](https://github.com/dpc-sdp/ripple/commit/d71c46e9d6c46c7f9e6ad494b8ae962095910ec3))
+* **@dpc-sdp/ripple-ui-forms:** restore character counter ([#1432](https://github.com/dpc-sdp/ripple/issues/1432)) ([0fbb068](https://github.com/dpc-sdp/ripple/commit/0fbb0687e6cfdac2bac4564e58bb3bcbe5d8950f))
+* add support for custom error messaging ([#1430](https://github.com/dpc-sdp/ripple/issues/1430)) ([0bede29](https://github.com/dpc-sdp/ripple/commit/0bede290bcee222e92b45b3174c5d0058fa01a74))
+
 ## [2.51.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-forms-v2.50.1...ripple-ui-forms-v2.51.0) (2026-08-06)
 
 

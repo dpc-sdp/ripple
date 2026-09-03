@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.47.0](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.7...eslint-config-ripple-v2.47.0) (2026-09-01)
+
+
+### Features
+
+* :sparkles: migrate component tests to playwright-ct ([#1422](https://github.com/dpc-sdp/ripple/issues/1422)) ([d71c46e](https://github.com/dpc-sdp/ripple/commit/d71c46e9d6c46c7f9e6ad494b8ae962095910ec3))
+
 ## [2.46.7](https://github.com/dpc-sdp/ripple/compare/eslint-config-ripple-v2.46.6...eslint-config-ripple-v2.46.7) (2026-07-02)
 
 

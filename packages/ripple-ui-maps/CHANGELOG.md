@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.50.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.2...ripple-ui-maps-v2.50.0) (2026-09-01)
+
+
+### Features
+
+* :sparkles: migrate component tests to playwright-ct ([#1422](https://github.com/dpc-sdp/ripple/issues/1422)) ([d71c46e](https://github.com/dpc-sdp/ripple/commit/d71c46e9d6c46c7f9e6ad494b8ae962095910ec3))
+
 ## [2.49.2](https://github.com/dpc-sdp/ripple/compare/ripple-ui-maps-v2.49.1...ripple-ui-maps-v2.49.2) (2026-07-02)
 
 

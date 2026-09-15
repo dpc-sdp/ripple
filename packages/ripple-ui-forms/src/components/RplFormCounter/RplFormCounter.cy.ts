@@ -4,14 +4,27 @@ describe('<RplFormCounter />', () => {
   it('renders', () => {
     cy.mount(RplFormCounter, {
       props: {
-        value: 'Loem Ipsum',
+        value: '',
         counterMin: 0,
         counterMax: 20
       }
     })
+      .get('[data-cy="counter"]')
+      .should('have.text', 'You have 20 characters left')
   })
 
-  it('displays the current count', () => {
+  it('displays the current count when at max', () => {
+    cy.mount(RplFormCounter, {
+      props: {
+        value: 'Lorem',
+        counterMax: 5
+      }
+    })
+      .get('[data-cy="counter"]')
+      .should('have.text', 'You have 5 characters')
+  })
+
+  it('displays the remaining current count when below max', () => {
     cy.mount(RplFormCounter, {
       props: {
         value: 'Lorem',
@@ -20,7 +33,7 @@ describe('<RplFormCounter />', () => {
       }
     })
       .get('[data-cy="counter"]')
-      .should('have.text', 'You have 5 characters')
+      .should('have.text', 'You have 5 characters left')
   })
 
   it('displays the current count when under the minimum', () => {
@@ -34,7 +47,7 @@ describe('<RplFormCounter />', () => {
       .should('have.text', 'You have 5 characters')
   })
 
-  it('displays the how many characters over the maximum', () => {
+  it('displays how many characters over the maximum', () => {
     cy.mount(RplFormCounter, {
       props: {
         value: 'Lorem Ipsum Dol',
@@ -45,16 +58,28 @@ describe('<RplFormCounter />', () => {
       .should('have.text', 'You have 5 characters too many')
   })
 
-  it('displays the word count when empty', () => {
+  it('displays the word count when at max', () => {
     cy.mount(RplFormCounter, {
       props: {
         type: 'word',
-        value: '',
+        value: 'one two three four five',
         counterMax: 5
       }
     })
       .get('[data-cy="counter"]')
-      .should('have.text', 'You have 0 words')
+      .should('have.text', 'You have 5 words')
+  })
+
+  it('displays the remaining current word count when below max', () => {
+    cy.mount(RplFormCounter, {
+      props: {
+        type: 'word',
+        value: 'one two',
+        counterMax: 5
+      }
+    })
+      .get('[data-cy="counter"]')
+      .should('have.text', 'You have 3 words left')
   })
 
   it('displays the word count error when below the minimum and invalid', () => {

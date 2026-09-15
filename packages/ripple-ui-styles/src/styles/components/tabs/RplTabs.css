@@ -1,0 +1,86 @@
+@import '@dpc-sdp/ripple-ui-core/style/breakpoints';
+
+.rpl-tabs {
+  border-bottom: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+  display: flex;
+}
+
+.rpl-tab {
+  display: flex;
+  position: relative;
+  padding: var(--rpl-sp-4);
+  gap: var(--rpl-sp-2);
+  align-items: center;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: -1px;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &--active {
+    text-decoration: none;
+  }
+}
+
+.rpl-tab:active,
+.rpl-tab--active {
+  color: var(--rpl-clr-link);
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: var(--rpl-layer-1);
+    height: var(--rpl-border-3);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: var(--rpl-clr-link);
+  }
+
+  &:focus-visible {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.rpl-tabs--vertical {
+  display: inline-flex;
+  flex-direction: column;
+  border-bottom: 0;
+  border-left: var(--rpl-border-1) solid var(--rpl-clr-neutral-300);
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .rpl-tab {
+    justify-content: flex-start;
+    margin-bottom: 0;
+    margin-left: -1px;
+
+    &:active,
+    &--active {
+      border-color: var(--local-active-clr);
+
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: var(--rpl-layer-1);
+        width: var(--rpl-border-3);
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        background: var(--rpl-clr-link);
+      }
+
+      &:focus-visible {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+}

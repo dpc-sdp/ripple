@@ -1,0 +1,30 @@
+export const RplCoreIconNames = [
+  'icon-cancel',
+  'icon-check-circle-filled',
+  'icon-chevron-down',
+  'icon-chevron-left',
+  'icon-chevron-right',
+  'icon-chevron-up',
+  'icon-current-location',
+  'icon-document-lined',
+  'icon-document',
+  'icon-download',
+  'icon-enlarge-square-filled',
+  'icon-enlarge',
+  'icon-exclamation-circle-filled',
+  'icon-facebook',
+  'icon-file-secure',
+  'icon-home',
+  'icon-information-circle-filled',
+  'icon-link-external-square-filled',
+  'icon-linkedin',
+  'icon-mail',
+  'icon-phone',
+  'icon-pin',
+  'icon-twitter',
+  'icon-view',
+  'icon-whatsapp',
+  'icon-x'
+] as const
+
+export const RplCoreIconNameSet = new Set<string>(RplCoreIconNames)

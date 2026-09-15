@@ -1,0 +1,56 @@
+{
+  "bp": {
+    "xs": {
+      "$extensions": {
+        "ripple": {
+          "applications": "Mobile",
+          "viewport": "320 - 575"
+        }
+      },
+      "min": {
+        "$type": "dimension",
+        "$value": "0px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "575px"
+      }
+    },
+    "s": {
+      "min": {
+        "$type": "dimension",
+        "$value": "576px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "767px"
+      }
+    },
+    "m": {
+      "min": {
+        "$type": "dimension",
+        "$value": "768px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "991px"
+      }
+    },
+    "l": {
+      "min": {
+        "$type": "dimension",
+        "$value": "992px"
+      },
+      "max": {
+        "$type": "dimension",
+        "$value": "1199px"
+      }
+    },
+    "xl": {
+      "min": {
+        "$type": "dimension",
+        "$value": "1200px"
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ test.describe(() => {
     )
   })
 
-  test('displays the current count when at max', async ({ mount }) => {
+  test('displays 0 characters left when at max', async ({ mount }) => {
     const component = await mount(RplFormCounter, {
       props: {
         value: 'Lorem',
@@ -23,7 +23,7 @@ test.describe(() => {
       } as any
     })
     await expect(component.locator('[data-cy="counter"]')).toHaveText(
-      'You have 5 characters'
+      'You have 0 characters left'
     )
   })
 
@@ -56,6 +56,20 @@ test.describe(() => {
     )
   })
 
+  test('displays the current count when over the minimum', async ({
+    mount
+  }) => {
+    const component = await mount(RplFormCounter, {
+      props: {
+        value: 'LoremIpsum',
+        counterMin: 5
+      } as any
+    })
+    await expect(component.locator('[data-cy="counter"]')).toHaveText(
+      'You have 10 characters'
+    )
+  })
+
   test('displays how many characters over the maximum', async ({ mount }) => {
     const component = await mount(RplFormCounter, {
       props: {
@@ -68,7 +82,7 @@ test.describe(() => {
     )
   })
 
-  test('displays the word count when at max', async ({ mount }) => {
+  test('displays 0 words left when at max', async ({ mount }) => {
     const component = await mount(RplFormCounter, {
       props: {
         type: 'word',
@@ -77,7 +91,7 @@ test.describe(() => {
       } as any
     })
     await expect(component.locator('[data-cy="counter"]')).toHaveText(
-      'You have 5 words'
+      'You have 0 words left'
     )
   })
 

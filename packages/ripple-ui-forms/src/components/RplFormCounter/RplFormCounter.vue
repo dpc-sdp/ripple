@@ -37,7 +37,7 @@ const counterMessage = computed(() => {
     return `You have ${count} ${props.type}${pluralize(count)} too many`
   }
 
-  if (props.counterMax && length < props.counterMax) {
+  if (props.counterMax && length <= props.counterMax) {
     const count = props.counterMax - length
     return `You have ${count} ${props.type}${pluralize(count)} left`
   }

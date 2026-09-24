@@ -1,0 +1,24 @@
+{
+  "layer": {
+    "1": {
+      "$type": "number",
+      "$value": 1
+    },
+    "2": {
+      "$type": "number",
+      "$value": 2
+    },
+    "3": {
+      "$type": "number",
+      "$value": 3
+    },
+    "4": {
+      "$type": "number",
+      "$value": 4
+    },
+    "5": {
+      "$type": "number",
+      "$value": 5
+    }
+  }
+}

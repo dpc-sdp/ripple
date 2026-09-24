@@ -1,0 +1,37 @@
+{
+  "name": "@dpc-sdp/ripple-ui-styles",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./tokens": {
+      "types": "./src/styles/generated/index.d.ts",
+      "import": "./src/styles/generated/index.js",
+      "default": "./src/styles/generated/index.js"
+    },
+    "./components/*": "./src/styles/components/*",
+    "./tokens.json": "./dist/tokens.json",
+    "./global": "./dist/global.css"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build:tokens": "co build",
+    "build:types": "tsc -p tsconfig.json",
+    "build": "pnpm run clean && pnpm run build:tokens && vite build --config global-css.vite.config.ts && rimraf ./dist/delete.es.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@cobalt-ui/cli": "^1.12.0",
+    "@cobalt-ui/plugin-css": "^1.7.5",
+    "@cobalt-ui/plugin-js": "^1.4.4",
+    "@types/node": "^20.9.5",
+    "typescript": "^5.2.2",
+    "vite": "catalog:",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-dts": "^2.1.0",
+    "yaml": "^2.2.2"
+  }
+}

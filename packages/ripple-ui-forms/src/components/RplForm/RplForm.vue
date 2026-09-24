@@ -63,7 +63,7 @@ interface StepFormData {
 
 const props = withDefaults(defineProps<Props>(), {
   title: undefined,
-  resetOnSubmit: false,
+  resetOnSubmit: true,
   schema: undefined,
   config: (): Partial<Omit<FormKitConfig, 'rootClasses' | 'delimiter'>> => ({
     validationVisibility: null, // We add our own custom behavior for this, so set to null
@@ -348,7 +348,9 @@ watch(
 
         formStarted.value = false
 
-        reset(props.id)
+        if (props.resetOnSubmit) {
+          reset(props.id)
+        }
 
         if (formSteps.value.length) {
           getNode(stepsId)?.goTo(formSteps.value[0]?.id)

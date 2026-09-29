@@ -1,0 +1,62 @@
+.rpl-skeleton {
+  --local-animation-duration: 2s;
+
+  position: relative;
+  overflow: hidden;
+  background-color: var(--rpl-clr-neutral-100);
+}
+
+.rpl-skeleton--stripe {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    animation: skeleton-stripe var(--local-animation-duration) infinite ease-in-out;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--rpl-clr-neutral-200) 50%,
+      transparent
+    );
+  }
+}
+
+.rpl-skeleton--fade {
+  animation: skeleton-fade var(--local-animation-duration) infinite ease-in-out;
+}
+
+.rpl-skeleton--xs {
+  width: 20%;
+}
+
+.rpl-skeleton--s {
+  width: 40%;
+}
+
+.rpl-skeleton--m {
+  width: 60%;
+}
+
+.rpl-skeleton--l {
+  width: 80%;
+}
+
+.rpl-skeleton--full {
+  width: 100%;
+}
+
+@keyframes skeleton-stripe {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skeleton-fade {
+  50% {
+    opacity: 0.5;
+  }
+}

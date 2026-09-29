@@ -1,0 +1,130 @@
+{
+  "sp": {
+    "1": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$extensions": {
+        "ripple": {
+          "color": "#7B86C0CC"
+        }
+      }
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$extensions": {
+        "ripple": {
+          "color": "#6DA9EFCC"
+        }
+      }
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "12px",
+      "$extensions": {
+        "ripple": {
+          "color": "#58BBD8CC"
+        }
+      }
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "16px",
+      "$extensions": {
+        "ripple": {
+          "color": "#6DEEEECC"
+        }
+      }
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$extensions": {
+        "ripple": {
+          "color": "#AEEFC4CC"
+        }
+      }
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "24px",
+      "$extensions": {
+        "ripple": {
+          "color": "#CDF8ACCC"
+        }
+      }
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "28px",
+      "$extensions": {
+        "ripple": {
+          "color": "#EFDA73CC"
+        }
+      }
+    },
+    "8": {
+      "$type": "dimension",
+      "$value": "32px",
+      "$extensions": {
+        "ripple": {
+          "color": "#EFBB87CC"
+        }
+      }
+    },
+    "9": {
+      "$type": "dimension",
+      "$value": "40px",
+      "$extensions": {
+        "ripple": {
+          "color": "#F89D9DCC"
+        }
+      }
+    },
+    "10": {
+      "$type": "dimension",
+      "$value": "48px",
+      "$extensions": {
+        "ripple": {
+          "color": "#FC7D84CC"
+        }
+      }
+    },
+    "11": {
+      "$type": "dimension",
+      "$value": "56px",
+      "$extensions": {
+        "ripple": {
+          "color": "#F45FB9CC"
+        }
+      }
+    },
+    "12": {
+      "$type": "dimension",
+      "$value": "64px",
+      "$extensions": {
+        "ripple": {
+          "color": "#D223EFCC"
+        }
+      }
+    },
+    "13": {
+      "$type": "dimension",
+      "$value": "80px",
+      "$extensions": {
+        "ripple": {
+          "color": "#9C73EFCC"
+        }
+      }
+    },
+    "14": {
+      "$type": "dimension",
+      "$value": "120px",
+      "$extensions": {
+        "ripple": {
+          "color": "#9D9DEFCC"
+        }
+      }
+    }
+  }
+}

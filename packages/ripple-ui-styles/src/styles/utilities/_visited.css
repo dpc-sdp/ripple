@@ -1,0 +1,9 @@
+/*
+  For most links, we don't want a visited state to be applied.
+  This utility class can be used to apply a visited state to links that need it.
+*/
+.rpl-u-link-visited {
+  &:visited {
+    color: var(--rpl-clr-link-visited);
+  }
+}

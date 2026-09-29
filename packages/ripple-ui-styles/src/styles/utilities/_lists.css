@@ -1,0 +1,167 @@
+/* Lists
+
+  Due to the complexities of ul and ol styling the stylint rule for
+  'no-descending-specificity' has been disabled for this file.
+*/
+/* stylelint-disable no-descending-specificity */
+.rpl-type-list-ol,
+.rpl-content ol {
+  display: block;
+  list-style-type: decimal;
+  font-size: var(--rpl-type-size-2);
+  line-height: var(--rpl-type-lh-4);
+  letter-spacing: var(--rpl-type-ls-1);
+  margin-left: var(--rpl-sp-4);
+  padding-left: var(--rpl-sp-5);
+
+  @media (--rpl-bp-l) {
+    margin-left: var(--rpl-sp-5);
+  }
+
+  &.rpl-type-list-ol--decimal {
+    list-style-type: decimal;
+  }
+
+  &.rpl-type-list-ol--lower-roman {
+    list-style-type: lower-roman;
+  }
+
+  &.rpl-type-list-ol--upper-roman {
+    list-style-type: upper-roman;
+  }
+
+  &.rpl-type-list-ol--lower-latin {
+    list-style-type: lower-latin;
+  }
+
+  &.rpl-type-list-ol--upper-latin {
+    list-style-type: upper-latin;
+  }
+
+  li {
+    padding: 0 0 var(--rpl-sp-2) var(--rpl-sp-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  ::marker {
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-4);
+    letter-spacing: 0;
+  }
+
+  /* Sub lists */
+  .rpl-type-list-ol,
+  .rpl-type-list-ul,
+  ol,
+  ul {
+    margin-left: 0;
+    padding-top: var(--rpl-sp-2);
+    padding-left: var(--rpl-sp-5);
+  }
+
+  /* Level 2 */
+  & > li > ol {
+    list-style-type: lower-alpha;
+  }
+
+  /* Level 3 */
+  & > li > ol > li > ol {
+    list-style-type: lower-roman;
+
+    ::marker {
+      letter-spacing: var(--rpl-type-ls-1);
+    }
+  }
+}
+
+.rpl-type-list-ul,
+.rpl-content ul {
+  display: block;
+  font-size: var(--rpl-type-size-2);
+  line-height: var(--rpl-type-lh-4);
+  letter-spacing: var(--rpl-type-ls-1);
+  margin-left: var(--rpl-sp-4);
+  padding-left: var(--rpl-sp-5);
+  list-style-type: disc;
+
+  @media (--rpl-bp-l) {
+    margin-left: var(--rpl-sp-5);
+  }
+
+  &.rpl-type-list-ul--disc {
+    list-style-type: disc;
+  }
+
+  &.rpl-type-list-ul--circle {
+    list-style-type: circle;
+  }
+
+  &.rpl-type-list-ul--square {
+    list-style-type: square;
+  }
+
+  > li {
+    position: relative;
+    padding: 0 0 var(--rpl-sp-2) var(--rpl-sp-2);
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+
+  ::marker {
+    font-size: var(--rpl-type-size-2);
+    line-height: var(--rpl-type-lh-4);
+    letter-spacing: 0;
+  }
+
+  /* Sub lists */
+  .rpl-type-list-ul,
+  .rpl-type-list-ol,
+  ul,
+  ol {
+    margin-left: 0;
+    padding-top: var(--rpl-sp-2);
+    padding-left: var(--rpl-sp-5);
+  }
+
+  /* Level 2 */
+  & > li > ul {
+    list-style-type: none;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: '-';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(var(--rpl-sp-3) * -1);
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+[dir='rtl'] .rpl-type-list-ol,
+[dir='rtl'] .rpl-content ol,
+[dir='rtl'] .rpl-type-list-ul,
+[dir='rtl'] .rpl-content ul {
+  margin-left: 0;
+  margin-right: var(--rpl-sp-4);
+  padding-left: 0;
+  padding-right: var(--rpl-sp-4);
+
+  @media (--rpl-bp-l) {
+    margin-left: 0;
+    margin-right: var(--rpl-sp-5);
+  }
+
+  > li {
+    padding: 0 var(--rpl-sp-2) var(--rpl-sp-2) 0;
+  }
+}

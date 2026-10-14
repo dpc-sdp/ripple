@@ -30,6 +30,7 @@ export const dropdown: FormKitTypeDefinition = {
       variant: '$node.props.variant',
       searchable: '$node.props.searchable',
       noResultsLabel: '$node.props.noResultsLabel',
+      preventDeselect: '$node.props.preventDeselect',
       pii: '$node.props.pii'
     }
   })),
@@ -54,6 +55,7 @@ export const dropdown: FormKitTypeDefinition = {
     'variant',
     'searchable',
     'noResultsLabel',
+    'preventDeselect',
     'pii'
   ],
   /**

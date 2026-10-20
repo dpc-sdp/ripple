@@ -4,3 +4,4 @@ docs
 storybook-static
 .output
 .nuxt
+**/*.spec.ts

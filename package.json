@@ -65,7 +65,7 @@
   },
   "dependencies": {
     "rimraf": "catalog:",
-    "typescript": "5.0.2"
+    "typescript": "7.0.2"
   },
   "pnpm": {
     "overrides": {

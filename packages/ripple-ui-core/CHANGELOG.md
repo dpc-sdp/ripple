@@ -1303,6 +1303,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **@dpc-sdp/ripple-ui-core:** removed the unneeded 1px margin from the file icon ([f25b39e](https://github.com/dpc-sdp/ripple-framework/commit/f25b39ee9b586094a0e40d77b4cc565e99c68eaf))
 * **@dpc-sdp/ripple-ui-core:** revert content prop ([c79b30c](https://github.com/dpc-sdp/ripple-framework/commit/c79b30cf5cc665113458c59884e27719bf561726))
 
+## [2.56.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.55.0...ripple-ui-core-v2.56.0) (2026-10-20)
+
+
+### Features
+
+* :sparkles: update to stylelint 17.x ([#1440](https://github.com/dpc-sdp/ripple/issues/1440)) ([c1a7934](https://github.com/dpc-sdp/ripple/commit/c1a7934ae6b03d3275e75db2ea63f86073b05ce8))
+
 ## [2.55.0](https://github.com/dpc-sdp/ripple/compare/ripple-ui-core-v2.54.0...ripple-ui-core-v2.55.0) (2026-09-01)
 
 

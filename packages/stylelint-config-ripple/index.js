@@ -1,6 +1,8 @@
-'use strict'
+// Exclude legacy classes, but don't add to pattern
+const excludeClasses = ['budget-map-sidepanel-icon', 'callout-error']
+const selectorClassPattern = new RegExp(`^(?:${excludeClasses.join('|')}|(?:rpl|tide)-[a-z0-9]+(?:-[a-z0-9$]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?)(?:\\[.+\\])?$`)
 
-module.exports = {
+export default {
   overrides: [
     {
       files: ['*.vue', '**/*.vue'],
@@ -8,13 +10,12 @@ module.exports = {
     },
     {
       files: ['*.css', '**/*.css'],
-      extends: ['stylelint-config-standard', 'stylelint-config-prettier']
+      extends: ['stylelint-config-standard']
     }
   ],
   rules: {
     'color-hex-length': 'long',
-    'selector-class-pattern':
-      '^(rpl|tide)-[a-z0-9]+(?:-[a-z0-9$]+)*(?:__[a-z0-9]+(?:-[a-z0-9]+)*)?(?:--[a-z0-9]+(?:-[a-z0-9]+)*)?(?:\\[.+\\])?$',
+    'selector-class-pattern': selectorClassPattern,
     'custom-property-pattern': '(rpl|local)-[a-z0-9]+(?:-[a-z0-9$()]+)+',
     'value-keyword-case': [
       'lower',

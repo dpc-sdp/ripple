@@ -8,6 +8,7 @@
     "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
+  "type": "module",
   "main": "index.js",
   "exports": {
     ".": "./index.js"
@@ -16,12 +17,12 @@
     "index.js"
   ],
   "devDependencies": {
-    "stylelint": "^15.10.2",
-    "stylelint-config-html": "^1.1.0",
+    "stylelint": "^17.16.0",
+    "stylelint-config-html": "^2.0.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^34.0.0"
   },
   "peerDependencies": {
-    "stylelint": "^15.10.2"
+    "stylelint": "^17.16.0"
   }
 }

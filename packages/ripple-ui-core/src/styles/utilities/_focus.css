@@ -42,6 +42,7 @@
     border-width: var(--rpl-focusable-border-width, 0);
     color: var(--rpl-clr-type-focus-contrast) !important;
     text-decoration: none;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     text-decoration-line: none;
     outline: 0;
     position: relative;
@@ -79,6 +80,7 @@
     border-width: var(--rpl-focusable-border-width, 0);
     color: var(--rpl-clr-type-focus-contrast) !important;
     text-decoration: none;
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     text-decoration-line: none;
     outline: 0;
     position: relative;

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.47.0](https://github.com/dpc-sdp/ripple/compare/stylelint-config-ripple-v2.46.4...stylelint-config-ripple-v2.47.0) (2026-10-20)
+
+
+### Features
+
+* :sparkles: update to stylelint 17.x ([#1440](https://github.com/dpc-sdp/ripple/issues/1440)) ([c1a7934](https://github.com/dpc-sdp/ripple/commit/c1a7934ae6b03d3275e75db2ea63f86073b05ce8))
+
 ## [2.46.4](https://github.com/dpc-sdp/ripple/compare/stylelint-config-ripple-v2.46.3...stylelint-config-ripple-v2.46.4) (2026-05-14)
 
 

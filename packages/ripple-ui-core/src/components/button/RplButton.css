@@ -188,8 +188,8 @@ a.rpl-button {
 }
 
 .rpl-button--busy {
-  /* stylelint-disable-next-line no-descending-specificity */
   .rpl-button__icon,
+  /* stylelint-disable-next-line no-descending-specificity */
   .rpl-button__label {
     opacity: 0;
   }

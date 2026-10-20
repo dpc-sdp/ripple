@@ -105,12 +105,7 @@
 
 .rpl-data-table--mobile {
   /* stylelint-disable-next-line no-descending-specificity */
-  &,
-  tbody,
-  tfoot,
-  tr,
-  th,
-  td {
+  &, tbody, tfoot, tr, th, td {
     display: block;
     width: auto;
   }
@@ -119,15 +114,13 @@
     display: none;
   }
 
-  th,
-  td {
+  /* stylelint-disable-next-line no-descending-specificity */
+  th, td {
     font-weight: var(--rpl-font-weight-normal);
   }
 
-  th,
-  td,
-  th:first-child,
-  td:first-child {
+  /* stylelint-disable-next-line no-descending-specificity */
+  th, td, th:first-child, td:first-child {
     padding: 0 var(--rpl-sp-4);
     margin-top: var(--rpl-sp-4);
     margin-bottom: 0;

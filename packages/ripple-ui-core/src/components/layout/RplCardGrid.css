@@ -17,9 +17,11 @@
 
   /* Columns when there is no sidebar */
   grid-template-columns: 1fr;
+
   @media (--rpl-bp-m) {
     grid-template-columns: 1fr 1fr;
   }
+
   @media (--rpl-bp-l) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -40,6 +42,7 @@
 .rpl-layout-card-grid--has-sidebar {
   /* Columns when there is a sidebar */
   grid-template-columns: 1fr;
+
   @media (--rpl-bp-l) {
     grid-template-columns: 1fr 1fr;
   }

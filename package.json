@@ -40,7 +40,7 @@
   "devDependencies": {
     "@awmottaz/prettier-plugin-void-html": "^1.5.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@commitlint/cli": "^20.5.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^20.5.3",
     "@cypress/vite-dev-server": "^5.0.5",
     "@dpc-sdp/eslint-config-ripple": "workspace:*",

@@ -52,7 +52,7 @@
     "ol-ext": "^4.0.31",
     "postcss-each": "^1.1.0",
     "postcss-nested": "^6.0.1",
-    "postcss-normalize": "^10.0.1",
+    "postcss-normalize": "^13.0.1",
     "postcss-preset-env": "^8.1.0",
     "vue3-openlayers": "^11.6.2"
   },

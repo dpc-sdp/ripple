@@ -34,7 +34,7 @@
     "@vitejs/plugin-vue": "5.0.4",
     "pathe": "^1.1.0",
     "postcss-nested": "^6.0.1",
-    "postcss-normalize": "^10.0.1",
+    "postcss-normalize": "^13.0.1",
     "postcss-preset-env": "^8.1.0",
     "rimraf": "catalog:",
     "ts-node": "^10.7.0",

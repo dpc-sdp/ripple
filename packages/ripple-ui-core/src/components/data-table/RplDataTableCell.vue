@@ -18,6 +18,7 @@ defineProps<Props>()
       :is="(column as tableColumnConfig).component"
       :item="row"
       :column="column"
+      v-bind="(column as tableColumnConfig).props"
     />
   </template>
   <template v-else>

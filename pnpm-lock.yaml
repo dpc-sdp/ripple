@@ -462,8 +462,8 @@ importers:
         specifier: workspace:*
         version: link:../ripple-ui-core
       '@formkit/addons':
-        specifier: 1.6.9
-        version: 1.6.9
+        specifier: 2.4.0
+        version: 2.4.0
       '@formkit/inputs':
         specifier: 2.0.0
         version: 2.0.0
@@ -1546,8 +1546,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@formkit/addons@1.6.9':
-    resolution: {integrity: sha512-Qfq789kpQ5EYqFl6QPE32vMCs0qivbvR50NNRwUadC2hgfGcayKe8Gc43G8neW6HHPjmyzkHQHLknLxHrGni3Q==}
+  '@formkit/addons@2.4.0':
+    resolution: {integrity: sha512-MaWkrhLVbCcMN7vA3lOPS5LiVCHuZLAc1LzzxPNWmNi/idyueFbtGTJxeZUj7mXwEczpI/fIsaDsHBTq7MyJgA==}
 
   '@formkit/auto-animate@0.10.2':
     resolution: {integrity: sha512-t2Z3y8b/zB3wPWwgpc6JDVm4q0ezb5vfe2mqfUrQJ7XziZY8iYuhocQ7eJdTzowRePihrNbZ/DNJoFa6Yi5blg==}
@@ -1557,6 +1557,9 @@ packages:
 
   '@formkit/core@2.1.0':
     resolution: {integrity: sha512-ifP8sRoH0ekwBVbu+u83zWGP+596Hg4ji2kBLiYKkPpM7oLJYg7ZSmQtj9PVn9hcFYQwUL5zA6VsZx6JwOl3pQ==}
+
+  '@formkit/core@2.4.0':
+    resolution: {integrity: sha512-m077vzk680fRb83lrK48P6Nj8vTq/SuLjK5sCI+Keob7zwLbi9ZM9G4ea5dFuQvjeoI0RIsxgdZJz3vmFYgAxA==}
 
   '@formkit/dev@1.6.9':
     resolution: {integrity: sha512-4ueBpZAOiKr8/LZnq3mNePCX4ZB1j1JuJscBEwugWMnDeDwCNo5XWBrng1ER/LlitTRQ3mtEBNy2Qpm0yAHlwA==}
@@ -1576,8 +1579,8 @@ packages:
   '@formkit/inputs@2.0.0':
     resolution: {integrity: sha512-RK5KRtMg3YHTCOZ0z83yzFTCb9im1n4gAq/YFUs51jzWthzOdpSSTTOpmQBYq2WhHehC4JZuCuDsVc7UasC3yw==}
 
-  '@formkit/inputs@2.1.0':
-    resolution: {integrity: sha512-Rk8ICP+1Co3wokcQ0eC8FWST41QCePIUKsEj0Cmzq/7eGgXtt1pqkQgxDfNDZCy78Lv3Cxutfzhx+a7yCwMekg==}
+  '@formkit/inputs@2.4.0':
+    resolution: {integrity: sha512-klJZdPNErasmCfwDjjYFDenQcu2cF5gZkt9IMk6dahp799dnRmsHqEXqaBY6RQx/sTCANejamy5dL/z3E/xy+A==}
 
   '@formkit/nuxt@2.0.0':
     resolution: {integrity: sha512-pJVVMAjwCV+nqNsMUVcGr7K8WuhFckSubX/zVAj8eHx9s3m4soE111UTl7sKu5onujbhYFvQ6dyQKLmrFA/OLg==}
@@ -1618,6 +1621,9 @@ packages:
 
   '@formkit/utils@2.1.0':
     resolution: {integrity: sha512-yPGg0Uj0jp0N5h6AL+flJMRWksoZPtPu96Slb6i4GKraRKeJG6PbwCutWg9j6UiWqTsNX42Bz0Zsh9s6UxdziA==}
+
+  '@formkit/utils@2.4.0':
+    resolution: {integrity: sha512-l6nNbOBr8Uh079F2VdO5kkBlIPw3D/+2UmlWInhNXncTZpKRr73juSmnMooiuc/Jih1TQEmCKkd02OI0ew79cg==}
 
   '@formkit/validation@1.6.9':
     resolution: {integrity: sha512-9PGwN0ZDJt3hsrMyaL8KTG3diSQDik1OGogVG6/nFcZhWUycpeamFfXZSQ5pfzmwnvrTHsvyT0FtKitUnWWuPA==}
@@ -9749,12 +9755,12 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@formkit/addons@1.6.9':
+  '@formkit/addons@2.4.0':
     dependencies:
       '@formkit/auto-animate': 0.10.2
-      '@formkit/core': 1.6.9
-      '@formkit/inputs': 1.6.9
-      '@formkit/utils': 1.6.9
+      '@formkit/core': 2.4.0
+      '@formkit/inputs': 2.4.0
+      '@formkit/utils': 2.4.0
 
   '@formkit/auto-animate@0.10.2': {}
 
@@ -9764,7 +9770,11 @@ snapshots:
 
   '@formkit/core@2.1.0':
     dependencies:
-      '@formkit/utils': 2.1.0
+      '@formkit/utils': 2.4.0
+
+  '@formkit/core@2.4.0':
+    dependencies:
+      '@formkit/utils': 2.4.0
 
   '@formkit/dev@1.6.9':
     dependencies:
@@ -9773,8 +9783,8 @@ snapshots:
 
   '@formkit/dev@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/core': 2.4.0
+      '@formkit/utils': 2.4.0
 
   '@formkit/i18n@1.6.9':
     dependencies:
@@ -9784,8 +9794,8 @@ snapshots:
 
   '@formkit/i18n@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/core': 2.4.0
+      '@formkit/utils': 2.4.0
       '@formkit/validation': 2.1.0
 
   '@formkit/inputs@1.6.9':
@@ -9798,10 +9808,10 @@ snapshots:
       '@formkit/core': 2.1.0
       '@formkit/utils': 2.1.0
 
-  '@formkit/inputs@2.1.0':
+  '@formkit/inputs@2.4.0':
     dependencies:
-      '@formkit/core': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/core': 2.4.0
+      '@formkit/utils': 2.4.0
 
   '@formkit/nuxt@2.0.0(@nuxt/kit@4.4.8(magicast@0.5.3))(esbuild@0.28.1)(vite@6.4.3(@types/node@20.19.43)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.51.2)(yaml@2.9.0))(vue@3.5.39(typescript@5.9.3))(webpack@5.108.4(esbuild@0.28.1)(lightningcss@1.32.0)(postcss@8.5.32))':
     dependencies:
@@ -9827,8 +9837,8 @@ snapshots:
 
   '@formkit/observer@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/core': 2.4.0
+      '@formkit/utils': 2.4.0
 
   '@formkit/rules@1.6.9':
     dependencies:
@@ -9838,8 +9848,8 @@ snapshots:
 
   '@formkit/rules@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/core': 2.4.0
+      '@formkit/utils': 2.4.0
       '@formkit/validation': 2.1.0
 
   '@formkit/themes@1.6.9':
@@ -9848,11 +9858,13 @@ snapshots:
 
   '@formkit/themes@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
+      '@formkit/core': 2.4.0
 
   '@formkit/utils@1.6.9': {}
 
   '@formkit/utils@2.1.0': {}
+
+  '@formkit/utils@2.4.0': {}
 
   '@formkit/validation@1.6.9':
     dependencies:
@@ -9862,9 +9874,9 @@ snapshots:
 
   '@formkit/validation@2.1.0':
     dependencies:
-      '@formkit/core': 2.1.0
+      '@formkit/core': 2.4.0
       '@formkit/observer': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/utils': 2.4.0
 
   '@formkit/vue@1.6.9(vue@3.5.39(typescript@5.9.3))':
     dependencies:
@@ -9885,14 +9897,14 @@ snapshots:
 
   '@formkit/vue@2.1.0(vue@3.5.39(typescript@5.9.3))':
     dependencies:
-      '@formkit/core': 2.1.0
+      '@formkit/core': 2.4.0
       '@formkit/dev': 2.1.0
       '@formkit/i18n': 2.1.0
-      '@formkit/inputs': 2.1.0
+      '@formkit/inputs': 2.4.0
       '@formkit/observer': 2.1.0
       '@formkit/rules': 2.1.0
       '@formkit/themes': 2.1.0
-      '@formkit/utils': 2.1.0
+      '@formkit/utils': 2.4.0
       '@formkit/validation': 2.1.0
       vue: 3.5.39(typescript@5.9.3)
 

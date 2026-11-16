@@ -18,7 +18,7 @@
   "devDependencies": {
     "@modyfi/vite-plugin-yaml": "^1.0.4",
     "@rollup/plugin-node-resolve": "^15.2.1",
-    "@storybook/addon-a11y": "^10.6.2",
+    "@storybook/addon-a11y": "^10.6.7",
     "@storybook/addon-vitest": "^10.6.2",
     "@storybook/vue3": "^10.6.2",
     "@storybook/vue3-vite": "^10.6.2",

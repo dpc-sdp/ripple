@@ -24,7 +24,7 @@
     "@formkit/inputs": "2.0.0",
     "@formkit/nuxt": "2.0.0",
     "@formkit/validation": "1.6.9",
-    "@formkit/vue": "1.6.9",
+    "@formkit/vue": "2.5.0",
     "@nuxt/kit": "catalog:",
     "@vueuse/core": "catalog:",
     "date-fns": "catalog:"

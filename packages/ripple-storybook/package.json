@@ -27,7 +27,7 @@
     "@vitest/coverage-v8": "^4.1.8",
     "chromatic": "^15.1.1",
     "http-server": "^14.1.1",
-    "playwright": "^1.60.0",
+    "playwright": "^1.65.1",
     "storybook": "^10.6.2",
     "vitest": "^4.1.8",
     "lodash.kebabcase": "^4.1.1"
